@@ -1,0 +1,288 @@
+
+// links
+a {
+	&:link, &:visited, &:active, &:focus {
+		outline: 0;
+		color: $cor1;
+		text-decoration:none;
+	}
+	&:hover {
+		text-decoration:underline;
+	}
+}
+b, strong {
+	font-weight: bold;
+}
+u {
+	text-decoration: underline;
+}
+i, em {
+	font-style: italic;
+}
+s {
+	text-decoration: line-through;
+}
+// item de delete
+del {
+	display: none
+}
+// espacamento entre formatacoes de conteudo
+p, ul, ol, .wp-block-cover-image, .wp-block-image, .video, table, hr {
+	margin: 0 0 26px;
+}
+
+small {
+	font-size: 80%;
+}
+
+
+// titulos
+h1, h2, h3, h4, h5 {
+	line-height: 1.3;
+	font-weight: normal;
+	display: block;
+	color: $cor1;
+	font-family: $fonte-titulo;
+
+	a {
+		color: inherit !important;
+		text-decoration:none !important;
+	}
+
+	&.verde {
+		color: darken($cor2,10%);
+	}
+}
+
+h1 {font-size: 2em;}
+h2 {font-size: 1.7em;}
+h3 {font-size: 1.4em;}
+h4 {font-size: 1.25em; color: $cor-padrao}
+h5 {font-size: 1.15em; color: $cor-padrao}
+
+// quote
+blockquote {
+	line-height: 1.4;
+	font-style: italic;
+}
+
+
+// tbelas
+table {
+	width: 100%;
+	border: 1px solid $cor1;
+
+	tr {
+		border-top: 1px solid $cor1;
+
+		th {
+			background: $cor1;
+			color: desaturate(lighten($cor1,28%),25%);
+			font-weight: bold; 
+		}
+
+		td {
+			border-left: 1px solid $cor1;
+		}
+	}
+
+	th, td {
+		padding: 3px 6px;
+		p {margin: 0;}
+	}
+}
+
+// video
+.video {
+	padding-bottom: 53.7%;
+	padding-top: 30px;
+	width: 100%;
+	font-size: 0;
+	position: relative;
+	overflow: hidden;
+
+	iframe, object, embed {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		
+		// padding-bottom: 2.5%
+	}
+}
+
+
+
+// caixas de texto e selects pra contato e afins
+input, textarea {
+	width: 100%;
+	margin-top: 20px;
+	vertical-align:middle;
+	white-space:normal;
+	background:none;
+	line-height:1;
+	display: block;
+	padding: 8px 10px;
+	outline: 0;
+	font-size: 11px;
+	font-family: $fonte-padrao;
+	font-style: italic;
+	color: $cor-padrao;
+	background: #fff;
+	border: 1px solid;
+	border-radius: 0;
+
+	&:focus {
+		outline:0;
+	}
+
+	&::placeholder {
+    	color: inherit;
+    }
+}
+
+input, textarea, button { -webkit-border-radius: 0; -webkit-appearance: none;}
+
+textarea {
+	height: 200px;
+	line-height: 1.65;
+}
+
+
+/////// seletor
+.seletor {
+  position: relative;
+  background: $branco;
+  border: 2px solid $cor2;
+  cursor: pointer;
+  border-radius: 3px;
+  box-shadow: 2px 2px 2px $cor3;
+
+	select {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		width: 100%;
+		padding: 10px 20px;
+		border-radius: 0;
+		background: transparent;
+		border: none;
+		color: $cor1;
+		font-size: 1em;
+		outline: none;
+		cursor: pointer;
+		font-family: $fonte-titulo;
+	}
+
+	&:before {
+		content: '\f0d7';
+		font-family: $fonte-icones;
+		position: absolute;
+		color: $cor2;
+		font-size: 28px;
+	    top: 8px;
+	    right: 20px;
+	    line-height: 1;
+	    @include transition(color 0.3s ease-in-out);
+	}
+
+	&:hover {
+		&:before {color: $cor1}
+	}
+
+	/* CAUTION: IE hackery ahead */
+	select::-ms-expand { 
+	    display: none; /* remove default arrow on ie10 and ie11 */
+	}
+
+	/* target Internet Explorer 9 to undo the custom arrow */
+	@media screen and (min-width:0\0) {
+	    select {
+	        background:none\9;
+	        padding: 5px\9;
+	    } 
+	}	
+}
+
+
+
+
+
+// botoes
+.button, input[type=submit], button.button, a.button {
+	font-style: normal;
+	border: 0; outline: 0; border-radius: 0px;
+	font-weight: 800;
+	display: inline-block;
+	padding: 8px 0 18px;
+	line-height: 1;
+	background: url('../img/bgbt.svg') repeat-x left bottom / 32px 9px;
+	font-size: 13px;
+	text-transform: uppercase;
+	color: $cor1;
+	text-align: center;
+	width: 185px;
+	cursor: pointer;
+	font-family: $fonte-titulo;
+	-webkit-appearance: none;
+	letter-spacing: 2px; font-weight: bold;
+	@include transition(color 0.3s ease-in-out);
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+
+	&:hover {
+		text-decoration: none;
+		color: darken($cor2,10%);
+	}
+
+	&.maior {
+		width: 248px;
+	}
+}
+
+
+// definicoes
+.clear {
+	clear: both;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/****************************************
+ ----------------------------------------
+ * PADRAO WORDPRESS *
+ ----------------------------------------
+ ****************************************/
+
+.alignnone, a img.alignnone {
+    margin-top: 0;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.aligncenter, a img.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.alignright, a img.alignright {
+    float:right;
+    margin-top: 5px;
+    margin-right: 0;
+    margin-left: 20px;
+}
+
+.alignleft, a img.alignleft {
+    float: left;
+    margin-top: 5px;
+    margin-left: 0;
+    margin-right: 20px;
+}
+

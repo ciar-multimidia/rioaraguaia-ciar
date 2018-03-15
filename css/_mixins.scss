@@ -1,0 +1,17 @@
+/****************************************
+ ----------------------------------------
+ * PADRAO DE ITENS *
+ ----------------------------------------
+ ****************************************/
+@mixin flex($dir) {
+    @include display(flex);
+    @include flex-wrap(wrap);
+    @include flex-direction(row);
+    @include justify-content($dir);
+}
+
+%sprite {
+	background-image: url('../img/sprite.svg');
+	background-repeat: no-repeat;
+	background-size: 405px 280px;
+}
