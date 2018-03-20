@@ -39,4 +39,11 @@ jQuery(document).ready(function($) {
     }
   });  
 
+
+  ////////////////////////////////// IR PRO PRODAPE
+
+  $('[href=#rodape-site]').on('click', function(event) {
+    event.preventDefault();
+    $('html').stop().animate({scrollTop: $('body').height() - $(window).height()}, 500);
+  });
 });

@@ -133,6 +133,17 @@ body {
 }
 
 
+body.single-colaboradoresufg #cabecalho .container nav ul li a {
+	background: transparent !important;
+	color: $cor-padrao !important;
+
+	&:hover {
+		background: $cor1 !important;
+		color: $branco !important;
+	}
+}
+
+
 
 /****************************************
  ----------------------------------------
@@ -147,6 +158,7 @@ body {
 	.descricao, .fundo {
 		width: 50%;
 		position: relative;
+		text-align: justify;
 	}
 
 	.fundo {
@@ -290,7 +302,10 @@ body {
 .descpagina {
 	.conteudo {
 		@include columns(2);
+		@include column-gap(40px);
 		margin: 25px 0;
+		text-align: justify;
+		hyphens: auto;
 	}
 }
 
@@ -320,7 +335,15 @@ body {
 			display: block;
 			margin-left: auto;
 			margin-right: auto;
-		}		
+			hyphens: auto;
+			text-align: justify;
+		}	
+
+		.foto-colab {
+			max-width: 350px;
+			margin: 0 20px 10px 0;
+			float: left;
+		}	
 	}
 
 	.fb-comentarios {
@@ -342,13 +365,117 @@ body {
 	width: 100%; margin: 40px 0;
 
 	& > div {
+		position: relative;
+		padding: 40px 0;
+
 		.container {
 			@include flex(space-between);
 
 			.conteudo, .ilustracao {
 				width: calc(50% - 20px);
+				text-align: justify;
+				hyphens: auto;
+
+				.imagem {
+					padding: 0 0 56.4%;
+					position: relative;
+					overflow: hidden;
+					background-size: cover;
+					background-position: center center;
+				}
+
+				h3 {text-align: left;}
+
+				h5 {
+					font-size: 0.9em;
+					text-transform: uppercase;
+					margin: 10px 0 20px;
+					font-weight: 800;
+					text-align: left;
+				}
+
+				.infos {
+					p {
+						margin: 0;
+
+						span {
+							font-family: $fonte-titulo;
+							color: $cor1; text-transform: uppercase;
+							font-size: 0.85em; font-weight: 800;
+						}
+
+						a {
+							color: $cor2-escuro;
+
+							&:after {content: ", "; color: $cor-padrao;}
+
+							&:last-child {
+								&:after {display: none;}
+							}
+						}
+					}
+				}
+			}
+
+			.ilustracao {
+				@include align-self(center);
+				.detalhe {
+					width: 277px; height: 62px;
+					@extend %sprite;
+					background-position: -10px -210px;
+					margin: 0 auto;
+					display: block;
+
+					&:last-child {@include transform(scaleX(-1));}
+				}
+
+				.video, .imagem {margin: 50px 0}
 			}
 		}
+
+		&:nth-of-type(odd) {
+			background: lighten($cor3,5%);
+
+			.container {
+				.conteudo {@include order(1);}
+				.ilustracao {@include order(2);}
+			}
+		}
+	}
+}
+
+
+////// ficha tenica
+.fichatecnica {
+	h2 {
+		text-transform: uppercase;
+		font-size: 1em;
+		font-weight: 800;
+		letter-spacing: 0.05em;
+	}
+
+	.conteudo article {
+		width: 100%;
+		@include columns(3);
+		@include column-gap(45px);
+		text-align: left;
+		hyphens: auto;
+
+		p {
+		  -webkit-column-break-inside: avoid;
+		  page-break-inside: avoid;
+		  break-inside: avoid;
+		}
+	}
+
+
+	hr {
+		width: 80px; height: 18px;
+		@extend %sprite;
+		background-position: -305px -158px;
+		margin: 40px auto;
+		display: block;
+		border: 0; outline: 0;
 	}
 }
 
@@ -482,13 +609,3 @@ body {
 		}
 	}
 }
-
-
-
-
-/****************************************
- ----------------------------------------
- * RESPONSIVO *
- ----------------------------------------
- ****************************************/
-@import "responsivo";

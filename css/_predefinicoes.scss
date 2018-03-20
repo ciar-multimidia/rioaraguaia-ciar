@@ -43,6 +43,7 @@ h1, h2, h3, h4, h5 {
 	display: block;
 	color: $cor1;
 	font-family: $fonte-titulo;
+	hyphens: none;
 
 	a {
 		color: inherit !important;
@@ -50,15 +51,15 @@ h1, h2, h3, h4, h5 {
 	}
 
 	&.verde {
-		color: darken($cor2,10%);
+		color: $cor2-escuro;
 	}
 }
 
 h1 {font-size: 2em;}
 h2 {font-size: 1.7em;}
 h3 {font-size: 1.4em;}
-h4 {font-size: 1.25em; color: $cor-padrao}
-h5 {font-size: 1.15em; color: $cor-padrao}
+h4 {font-size: 1.25em;}
+h5 {font-size: 1.15em;}
 
 // quote
 blockquote {
@@ -94,8 +95,7 @@ table {
 
 // video
 .video {
-	padding-bottom: 53.7%;
-	padding-top: 30px;
+	padding: 0 0 56.4%;
 	width: 100%;
 	font-size: 0;
 	position: relative;

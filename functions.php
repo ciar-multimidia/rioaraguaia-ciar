@@ -7,6 +7,33 @@
 add_action( 'after_setup_theme', 'setup_theme' );
 function setup_theme() {
 
+    // admin menus
+    if( function_exists('acf_add_options_page') ) {
+      
+      acf_add_options_page(array(
+        'page_title'  => 'Página principal',
+        'menu_title'  => 'Opções do site',
+        'menu_slug'   => 'opcoes-site',
+        'capability'  => 'edit_posts',
+        'position'    => 3,
+        'redirect'    => false
+      ));
+
+      acf_add_options_sub_page(array(
+        'page_title'  => 'Página: Sobre o curso',
+        'menu_title'  => 'Sobre o curso',
+        'parent_slug' => 'opcoes-site'
+      ));
+
+      acf_add_options_sub_page(array(
+        'page_title'  => 'Página: Ficha técnica',
+        'menu_title'  => 'Ficha técnica',
+        'parent_slug' => 'opcoes-site'
+      ));
+      
+    }
+
+
     // thumbnails
     add_theme_support( 'post-thumbnails' );
 
@@ -42,6 +69,7 @@ function setup_theme() {
 }
 
 require_once(get_template_directory().'/func/galeria.php' );
+require_once(get_template_directory().'/func/type-colab.php' );
 
 // ========================================//
 // CUSTOM DASHBOARD ITENS
@@ -70,41 +98,6 @@ function remover_personalizar() {
   $wp_admin_bar->remove_menu('customize');
 }
 add_action( 'wp_before_admin_bar_render', 'remover_personalizar' );
-
-
-// ========================================//
-// OPCOES ADMIN
-// ========================================// 
-if( function_exists('acf_add_options_page') ) {
-  
-  acf_add_options_page(array(
-    'page_title'  => 'Página principal',
-    'menu_title'  => 'Opções do site',
-    'menu_slug'   => 'opcoes-site',
-    'capability'  => 'edit_posts',
-    'position'    => 3,
-    'redirect'    => false
-  ));
-
-  acf_add_options_sub_page(array(
-    'page_title'  => 'Página: Sobre o curso',
-    'menu_title'  => 'Sobre o curso',
-    'parent_slug' => 'opcoes-site'
-  ));
-
-  acf_add_options_sub_page(array(
-    'page_title'  => 'Página: Exposição virtual',
-    'menu_title'  => 'Exposição virtual',
-    'parent_slug' => 'opcoes-site'
-  ));
-
-  acf_add_options_sub_page(array(
-    'page_title'  => 'Página: Ficha técnica',
-    'menu_title'  => 'Ficha técnica',
-    'parent_slug' => 'opcoes-site'
-  ));
-  
-}
 
 
 

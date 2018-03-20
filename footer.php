@@ -12,9 +12,9 @@
 			</div>
 			<div class="redes">
 				<span>Meios de contato:</span>
-				<a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-				<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-				<a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+				<a href="https://www.instagram.com/projeto.rio.araguaia2/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+				<a href="https://www.facebook.com/Rio-Araguaia-Lugar-de-mem%C3%B3rias-e-identidades-1529700333739413/" target="blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+				<a href="mailto:projeto.rio.araguaia@gmail.com" target="blank"><i class="fa fa-envelope" aria-hidden="true"></i></a>
 			</div>
 		</div>
 
