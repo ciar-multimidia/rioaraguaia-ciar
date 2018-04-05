@@ -43,18 +43,17 @@
 
 
 
-<section class="divisoria">
-	<div class="container duascolunas">
-		<div>
-			<h2 class="verde">Exposição virtual</h2>
+<section class="divisoria" style="padding-bottom: 0">
+	<div class="container descpagina">
+		<h2>Exposição virtual</h2>
+
+		<div class="conteudo" style="margin-bottom: 0">
 		<?php if( have_rows('apresenta_exposicao','option') ): while (have_rows('apresenta_exposicao','option')) : the_row(); ?>
 			<?php if (get_sub_field('portugues')): ?>
 				<?php echo get_sub_field('portugues'); ?>
 			<?php endif; ?>
 		<?php endwhile; endif; ?>
-		</div>
-		<div>
-			<?php get_template_part('inc/seletor') ?>
+		<?php get_template_part('inc/seletor') ?>
 		</div>
 	</div>
 </section>

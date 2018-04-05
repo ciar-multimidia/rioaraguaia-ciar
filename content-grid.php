@@ -1,5 +1,5 @@
 <div class="item-grid">
-	<?php if (! is_archive()): ?><mark>Tema: <?php the_category(', '); ?></mark><?php endif; ?>
+	<?php if (! is_archive()): ?><mark>Eixo <?php the_category(' e '); ?></mark><?php endif; ?>
 	<div class="thumb" <?php if(has_post_thumbnail($post->ID)): ?>style="background-image: url('<?php thumb_url('medium'); ?>');"<?php endif; ?>>
 		<img src="<?php thumb_url('medium'); ?>" class="hidden">
 	</div>

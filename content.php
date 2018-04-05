@@ -1,7 +1,7 @@
 <section class="container" id="conteudo-interno">
 	<header>
 		<?php if (is_singular('post')): ?>
-			<mark>Tema: <?php the_category(', '); ?></mark>
+			<mark>Eixo <?php the_category(' e '); ?></mark>
 		<?php endif; ?>
 		<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
 	</header>
@@ -15,7 +15,7 @@
 			<?php endif; ?>
 		<?php endif; ?>
 		
-		<?php the_content(); ?>
+		<?php the_content(''); ?>
 
 		<?php if (is_singular('post')): ?>
 			<?php $mtl = get_field('arquivo_mtl'); $obj = get_field('arquivo_obj'); $jpg = get_field('arquivo_jpg'); if ($mtl && $obj && $jpg) : 
@@ -25,7 +25,7 @@
 		
 	</article>
 
-	<footer></footer>
+	<footer class="clear"></footer>
 
 	<?php if (is_singular('post')): ?>
 		<div class="fb-comentarios"><div class="fb-comments" data-href="<?php the_permalink(); ?>" data-width="100%" data-numposts="2"></div></div>

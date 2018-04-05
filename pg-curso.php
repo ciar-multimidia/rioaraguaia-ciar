@@ -13,7 +13,7 @@
 		<?php endwhile; endif; ?>
 	</div>
 
-	<div align="center"><a href="#" class="button">Acesso ao Moodle</a></div>
+	<!-- <div align="center"><a href="#" class="button">Acesso ao Moodle</a></div> -->
 </section>
 
 

@@ -1,16 +1,14 @@
 <?php get_header(); ?>
-	<div class="container duascolunas">
-		<div>
-			<h1>Exposição virtual</h1>
+	<div class="container descpagina">
+		<h1>Exposição virtual</h1>
 
+		<div class="conteudo">
 		<?php if( have_rows('apresenta_exposicao','option') ): while (have_rows('apresenta_exposicao','option')) : the_row(); ?>
 			<?php if (get_sub_field('portugues')): ?>
 				<?php echo get_sub_field('portugues'); ?>
 			<?php endif; ?>
 		<?php endwhile; endif; ?>
-		</div>
-		<div>
-			<?php get_template_part('inc/seletor') ?>
+		<?php get_template_part('inc/seletor') ?>
 		</div>
 	</div>
 

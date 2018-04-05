@@ -79,16 +79,21 @@ function custom_menus(){
   global $submenu;
 
   $menu[2][0] = 'Início';
-  $menu[5][0] = 'Publicações';
+  $menu[5][0] = 'Exposição Virtual';
   $menu[10][0] = 'Biblioteca mídia';
 
-  unset($submenu['themes.php'][6]); // remove customize
-  unset($submenu['themes.php'][8]); // remove editor
 
-  remove_menu_page('tools.php');
-  remove_submenu_page('themes.php','theme-editor.php');
-  
-  // remove_menu_page( 'edit.php?post_type=acf-field-group' );  // Advance custom fields 
+  if (! current_user_can('administrator')) {
+    unset($submenu['themes.php'][6]); // remove customize
+    unset($submenu['themes.php'][8]); // remove editor
+
+    remove_menu_page('edit-comments.php');
+    remove_menu_page('tools.php');
+    remove_submenu_page('themes.php','theme-editor.php');
+
+    remove_menu_page( 'edit.php?post_type=page' );
+    remove_menu_page( 'edit.php?post_type=acf-field-group' );
+  }
 }
 add_action( 'admin_menu', 'custom_menus', 999 );
 
@@ -268,80 +273,39 @@ function thumb_url($size) {
 
 
 
-// ========================================//
-// PAGINACAO
-// ========================================// 
-function paginacao($pages = '', $range = 4) {  
-     $showitems = ($range * 2)+1;  
-     global $paged;
-     if(empty($paged)) $paged = 1;
-   
-     if($pages == '')
-     {
-         global $wp_query;
-         $pages = $wp_query->max_num_pages;
-         if(!$pages)
-         {
-             $pages = 1;
-         }
-     }   
-
-     if(1 != $pages)
-     {
-         echo "<div class='paginacao'>\n";
-
-         // echo "<div class='inicio'>Página ".$paged." de ".$pages."</div>\n";
-
-         if($paged > 2 && $paged > $range+1 && $showitems < $pages) echo "<a href='".get_pagenum_link($paged - 1)."'><i class='fa fa-long-arrow-left' aria-hidden=true'></i></a>";
-         if($paged > 3 && $showitems < $pages) echo "<a href='".get_pagenum_link(1)."'>1</a> <span class='dots'>...</span>";
-
-         for ($i=1; $i <= $pages; $i++)
-         {
-             if (1 != $pages &&( !($i >= $paged+$range+1 || $i <= $paged-$range-1) || $pages <= $showitems ))
-             {
-                 echo ($paged == $i)? "<span class='current'>".$i."</span>":"<a href='".get_pagenum_link($i)."'>".$i."</a>";
-             }
-         }
-
-         if ($paged < $pages-1 &&  $paged+$range-1 < $pages && $showitems < $pages) echo "<span class='dots'>...</span> <a href='".get_pagenum_link($pages)."'>$pages</a>";
-         if ($paged < $pages && $showitems < $pages) echo "<a href='".get_pagenum_link($paged + 1)."'><i class='fa fa-long-arrow-right' aria-hidden='true'></i></a>"; 
-
-         echo "\n</div>";
-     }
-}
-
-
-
 
 // ========================================//
-// RELACIONADOS - POR PALAVRAS-CHAVE
+// SHORTCODES
 // ========================================// 
-function publicacoes_relacionadas() { 
-  $limitpost = 3;
-  global $post;
-  
-  $tags = wp_get_post_tags($post->ID);
-  $tag_ids = array();
-  foreach($tags as $individual_tag) $tag_ids[] = $individual_tag->term_id;
-  $args_tags = array( 'tag__in' => $tag_ids, 'post__not_in' => array($post->ID), 'order' => 'RAND', 'posts_per_page'=> $limitpost, 'ignore_sticky_posts'=> 1 );
-  $my_query_tags = new WP_Query($args_tags);
-  
-  
-  if ($my_query_tags->have_posts()) {
-    $i = 1;
-    while($my_query_tags->have_posts()) {
-    $my_query_tags->the_post();
-  ?>
-  
-      <div class="item" style="background-image: url('<?php thumb_url(); ?>');">
-        <a href="<?php the_permalink(); ?>"><h5><?php the_title(); ?></h5></a>
-      </div>  
+function shortcode_arruma_espacos($content) {  
+    $array = array (
+        '<p>[' => '[',
+        ']</p>' => ']',
+        ']<br />' => ']'
+    );
 
+    $content = strtr($content, $array);
 
-  <?php $i++; }
-  }
-  
-  else {}
-  wp_reset_query();
+    return $content;
 }
+add_filter('the_content', 'shortcode_arruma_espacos', 20);
+
+
+////////////////////////////// botao
+function shortcode_botao( $atts, $content = null ) {
+    extract(shortcode_atts(array(
+        "link" => '',
+        "tamanho" => '',
+    ), $atts));
+    ob_start();
+
+        echo "<a href=".$link."";
+        echo " class='button";
+        if ($tamanho) { echo " ".$tamanho."";}
+        echo "' target='blank'>".$content."</a>";
+
+    $output = ob_get_clean();
+    return $output;
+}
+add_shortcode('botao','shortcode_botao');
 
