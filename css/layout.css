@@ -301,6 +301,11 @@ textarea {
  ****************************************/
 html, body {
   overflow-x: hidden; }
+  @media (max-width: 1200px) {
+    html, body {
+      max-width: 1200px;
+      width: 1200px;
+      overflow-x: auto; } }
 
 body {
   font-weight: 400;
@@ -322,7 +327,8 @@ body {
   width: 100%;
   background: #F4F2D7;
   position: relative;
-  z-index: 3; }
+  z-index: 0;
+  margin-bottom: 9px; }
   #cabecalho.interno {
     margin-bottom: 60px; }
   #cabecalho .container {
@@ -473,7 +479,6 @@ body.single-colaboradoresufg #cabecalho .container nav ul li a {
     width: 50vw;
     position: absolute;
     top: 0;
-    z-index: 1;
     height: 100%; }
   .sobre .fundo .imagem {
     width: 50vw;
@@ -482,7 +487,28 @@ body.single-colaboradoresufg #cabecalho .container nav ul li a {
     height: 100%;
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center center; }
+    background-position: center center;
+    cursor: pointer; }
+    .sobre .fundo .imagem span i {
+      font-size: 30px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      -o-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      font-size: 90px;
+      color: rgba(255, 255, 255, 0.7);
+      -webkit-transition: color 0.2s ease-in-out;
+      -moz-transition: color 0.2s ease-in-out;
+      transition: color 0.2s ease-in-out; }
+    .sobre .fundo .imagem:hover span i {
+      color: #fff; }
+  @media (max-width: 1200px) {
+    .sobre .fundo .video, .sobre .fundo .imagem {
+      width: 100%; } }
   .sobre.projeto .descricao {
     padding: 40px 40px 40px 0; }
     .sobre.projeto .descricao:after {
@@ -492,8 +518,13 @@ body.single-colaboradoresufg #cabecalho .container nav ul li a {
       background-position: -10px -10px;
       position: absolute;
       bottom: -43px;
-      right: -43px;
-      z-index: 2; }
+      right: -32px;
+      z-index: 2;
+      -webkit-transform: scale(0.7);
+      -moz-transform: scale(0.7);
+      -ms-transform: scale(0.7);
+      -o-transform: scale(0.7);
+      transform: scale(0.7); }
   .sobre.projeto .fundo .video, .sobre.projeto .fundo .imagem {
     left: 0; }
   .sobre.curso .descricao {
@@ -505,8 +536,13 @@ body.single-colaboradoresufg #cabecalho .container nav ul li a {
       background-position: -10px -105px;
       position: absolute;
       bottom: -43px;
-      left: -43px;
-      z-index: 2; }
+      left: -20px;
+      z-index: 2;
+      -webkit-transform: scale(0.7);
+      -moz-transform: scale(0.7);
+      -ms-transform: scale(0.7);
+      -o-transform: scale(0.7);
+      transform: scale(0.7); }
   .sobre.curso .fundo .video, .sobre.curso .fundo .imagem {
     right: 0; }
 
@@ -514,6 +550,72 @@ body.single-colaboradoresufg #cabecalho .container nav ul li a {
   position: relative;
   background: #faf9eb;
   padding: 40px 0; }
+
+.acessoeixos {
+  margin: 40px 0 0 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-lines: multiple;
+  -moz-box-lines: multiple;
+  box-lines: multiple;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  box-direction: normal;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-direction: row;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  box-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  -o-justify-content: space-between;
+  justify-content: space-between;
+  -ms-flex-pack: justify; }
+  .acessoeixos a {
+    width: calc(33.3% - 20px);
+    height: 220px;
+    position: relative;
+    display: block;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    overflow: hidden; }
+    .acessoeixos a span {
+      display: block;
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding: 40px 15px 15px;
+      line-height: 1.3;
+      font-weight: normal;
+      display: block;
+      color: #fff;
+      font-family: "Nunito", serif;
+      -webkit-transition: padding-top 0.3s ease-in-out;
+      -moz-transition: padding-top 0.3s ease-in-out;
+      transition: padding-top 0.3s ease-in-out;
+      background: -moz-linear-gradient(top, transparent 1%, rgba(0, 0, 0, 0.02) 3%, rgba(0, 0, 0, 0.65) 74%, rgba(0, 0, 0, 0.65) 100%);
+      background: -webkit-linear-gradient(top, transparent 1%, rgba(0, 0, 0, 0.02) 3%, rgba(0, 0, 0, 0.65) 74%, rgba(0, 0, 0, 0.65) 100%);
+      background: linear-gradient(to bottom, transparent 1%, rgba(0, 0, 0, 0.02) 3%, rgba(0, 0, 0, 0.65) 74%, rgba(0, 0, 0, 0.65) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); }
+    .acessoeixos a:hover span {
+      padding-top: 60px; }
 
 /****************************************
  ----------------------------------------
@@ -1455,5 +1557,12 @@ img.mfp-img {
       #rodape-site .container .parte2 p {
         width: 100%;
         font-size: inherit; }
+  @media (max-width: 1200px) {
+    #rodape-site {
+      overflow-x: auto; }
+      #rodape-site .container {
+        border-top: 3px solid #191919; }
+        #rodape-site .container .linha {
+          display: none; } }
 
 /*# sourceMappingURL=layout.css.map */

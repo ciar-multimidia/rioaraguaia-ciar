@@ -12,11 +12,10 @@
 		<?php endwhile; endif; ?>
 	</div>
 	<div class="fundo">
-		<?php if (get_field('home_projeto_fundo','option') == 'Imagem'): ?>
-			<div class="imagem" style="background-image: url('<?php echo get_field('home_projeto_imagem','option'); ?>');"></div>
-		<?php elseif (get_field('home_projeto_fundo','option') == 'Vídeo'): ?>
-			<div class="video"><?php echo video_youtube(get_field('home_projeto_video','option')); ?></div>
-		<?php endif; ?>
+		<div class="video"><?php echo video_youtube(get_field('home_projeto_video','option')); ?></div>
+		<div class="imagem" style="background-image: url('<?php echo get_field('home_projeto_imagem','option'); ?>');">
+			<span><i class="fa fa-youtube-play" aria-hidden="true"></i></span>
+		</div>
 	</div>
 </section>
 
@@ -24,11 +23,10 @@
 
 <section class="sobre curso container">
 	<div class="fundo">
-		<?php if (get_field('home_curso_fundo','option') == 'Imagem'): ?>
-			<div class="imagem" style="background-image: url('<?php echo get_field('home_curso_imagem','option'); ?>');"></div>
-		<?php elseif (get_field('home_curso_fundo','option') == 'Vídeo'): ?>
-			<div class="video"><?php echo video_youtube(get_field('home_curso_video','option')); ?></div>
-		<?php endif; ?>
+		<div class="video"><?php echo video_youtube(get_field('home_curso_video','option')); ?></div>
+		<div class="imagem" style="background-image: url('<?php echo get_field('home_curso_imagem','option'); ?>');">
+			<span><i class="fa fa-youtube-play" aria-hidden="true"></i></span>
+		</div>
 	</div>
 	<div class="descricao">
 		<?php if (get_field('home_curso_titulo','option')): ?><h2 class="verde"><?php echo get_field('home_curso_titulo','option'); ?></h2><?php endif; ?>
@@ -43,7 +41,7 @@
 
 
 
-<section class="divisoria" style="padding-bottom: 0">
+<section class="divisoria">
 	<div class="container descpagina">
 		<h2>Exposição virtual</h2>
 
@@ -53,24 +51,19 @@
 				<?php echo get_sub_field('portugues'); ?>
 			<?php endif; ?>
 		<?php endwhile; endif; ?>
-		<?php get_template_part('inc/seletor') ?>
 		</div>
 	</div>
 </section>
 
 
-<div class="container">
-	<section class="lista-grid">
-			<?php 
-				$args = array('post_type' => 'post', 'posts_per_page' => 3, 'orderby' => 'rand');	
-				$my_query = new WP_Query( $args ); 
-					while ( $my_query->have_posts() ) : $my_query->the_post();
-						get_template_part( 'content', 'grid');
-					endwhile; 
-				wp_reset_query(); 
-			?>
-	</section>
-	<div align="center"><a href="<?php echo get_bloginfo('url'); ?>/exposicao-virtual/" class="button maior">Ver exposição virtual</a></div>
-</div>
 
-<?php get_footer(); ?>
+<?php 
+echo '<section class="container">'; 
+	echo '<div class="acessoeixos">';   
+		echo '<a style="background-image: url(/wp-content/uploads/2018/04/galeria-territorios-lugares002-375x250.jpg);" href="/exposicao-virtual/territorio-e-lugares/"><span>Eixo Território e Lugares</span></a>';
+		echo '<a style="background-image: url(/wp-content/uploads/2018/04/galeria-territorios-lugares017-375x250.jpg);" href="/exposicao-virtual/saberes-e-tradicoes/"><span>Eixo Saberes e Tradições</span></a>';
+		echo '<a style="background-image: url(/wp-content/uploads/2018/04/galeria-artes-museus-006-375x250.jpg);" href="/exposicao-virtual/artes-e-museus/"><span>Eixo Artes e Museus</span></a>';
+    echo '</div>';
+echo '</section>';
+
+get_footer(); ?>

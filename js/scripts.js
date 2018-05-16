@@ -46,4 +46,5 @@ jQuery(document).ready(function($) {
     event.preventDefault();
     $('html').stop().animate({scrollTop: $('body').height() - $(window).height()}, 500);
   });
+  
 });

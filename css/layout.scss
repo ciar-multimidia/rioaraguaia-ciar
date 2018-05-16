@@ -25,7 +25,14 @@ $fonte-icones: "FontAwesome";
  * LAYOUT *
  ----------------------------------------
  ****************************************/
-html, body {overflow-x: hidden;}
+html, body {overflow-x: hidden;
+
+	@media (max-width: 1200px) {
+		max-width: 1200px; width: 1200px;
+		overflow-x: auto;
+	}
+
+}
 
 body {
 	font-weight: 400;
@@ -51,7 +58,8 @@ body {
 	width: 100%;
 	background: $cor3;
 	position: relative;
-	z-index: 3;
+	z-index: 0;
+    margin-bottom: 9px;
 
 	&.interno {
 		margin-bottom: 60px;
@@ -162,11 +170,10 @@ body.single-colaboradoresufg #cabecalho .container nav ul li a {
 	}
 
 	.fundo {
-
 		.video {
 			width: 50vw;
 			position: absolute;
-			top: 0; z-index: 1;
+			top: 0;
 			height: 100%;
 		}
 
@@ -178,6 +185,24 @@ body.single-colaboradoresufg #cabecalho .container nav ul li a {
 			background-size: cover;
 			background-repeat: no-repeat;
 			background-position: center center;
+			cursor: pointer;
+
+			span i {
+				font-size: 30px;
+				position: absolute;
+				top: 50%; left: 50%;
+				@include transform(translate(-50%,-50%));
+				font-size: 90px;
+				color: transparentize($branco,0.3);
+				@include transition(color 0.2s ease-in-out);
+			    // text-shadow: 1px 1px 0 black, 0px 0px 70px black;
+			}
+
+			&:hover span i {color: $branco}
+		}
+
+		@media (max-width: 1200px) {
+			.video, .imagem {width: 100%}
 		}
 	}
 
@@ -190,8 +215,9 @@ body.single-colaboradoresufg #cabecalho .container nav ul li a {
 				@extend %sprite;
 				width: 387px; height: 87px;
 				background-position: -10px -10px;
-				position: absolute; bottom: -43px; right: -43px;
+				position: absolute; bottom: -43px; right: -32px;
 			    z-index: 2;
+			    @include transform(scale(0.7));
 			}
 		}
 		.fundo {
@@ -208,8 +234,9 @@ body.single-colaboradoresufg #cabecalho .container nav ul li a {
 				@extend %sprite;
 				width: 281px; height: 95px;
 				background-position: -10px -105px;
-				position: absolute; bottom: -43px; left: -43px;
+				position: absolute; bottom: -43px; left: -20px;
 			    z-index: 2;
+			    @include transform(scale(0.7));
 			}
 		}
 		.fundo {
@@ -224,6 +251,44 @@ body.single-colaboradoresufg #cabecalho .container nav ul li a {
 	position: relative;
 	background: lighten($cor3,5%);
 	padding: 40px 0;
+}
+
+
+///// acesso aos eixos
+.acessoeixos {
+	margin: 40px 0 0 0;
+	@include flex(space-between);
+
+	a {
+		width: calc(33.3% - 20px);
+		height: 220px;
+		position: relative;
+		display: block;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center center;
+		overflow: hidden;
+
+		span {
+			display: block;
+			width: 100%;
+			position: absolute;
+			bottom: 0;
+			left: 0; padding: 40px 15px 15px;
+			line-height: 1.3;
+			font-weight: normal;
+			display: block;
+			color: $branco;
+			font-family: $fonte-titulo;
+			@include transition(padding-top 0.3s ease-in-out);
+			background: -moz-linear-gradient(top, rgba(0,0,0,0) 1%, rgba(0,0,0,0.02) 3%, rgba(0,0,0,0.65) 74%, rgba(0,0,0,0.65) 100%);
+			background: -webkit-linear-gradient(top, rgba(0,0,0,0) 1%,rgba(0,0,0,0.02) 3%,rgba(0,0,0,0.65) 74%,rgba(0,0,0,0.65) 100%);
+			background: linear-gradient(to bottom, rgba(0,0,0,0) 1%,rgba(0,0,0,0.02) 3%,rgba(0,0,0,0.65) 74%,rgba(0,0,0,0.65) 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );
+		}
+
+		&:hover span {padding-top: 60px}
+	}
 }
 
 
@@ -610,4 +675,14 @@ body.single-colaboradoresufg #cabecalho .container nav ul li a {
 			p {width: 100%; font-size: inherit;}
 		}
 	}
+
+	@media (max-width: 1200px) {
+		overflow-x: auto;
+
+		.container {
+			border-top: 3px solid $cor-padrao;
+			.linha {display: none;}
+		}
+	}
+
 }

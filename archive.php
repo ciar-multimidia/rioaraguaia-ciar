@@ -37,7 +37,7 @@
 						<?php echo get_sub_field('portugues'); ?>
 					<?php endif; ?>
 				<?php endwhile; endif; ?>
-			<?php } //get_template_part('inc/seletor') ?>
+			<?php } get_template_part('inc/seletor'); ?>
 		</div>
 	</div>
 
