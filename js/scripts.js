@@ -46,5 +46,24 @@ jQuery(document).ready(function($) {
     event.preventDefault();
     $('html').stop().animate({scrollTop: $('body').height() - $(window).height()}, 500);
   });
+
+
+  // =============== Bt Play Youtube
+
+  var scriptYtApi = $('<script></script>');
+  scriptYtApi.attr('src', '//www.youtube.com/player_api');
+  $('main').find('script').eq(0).before(scriptYtApi);
+
+  var player;
+  
+  function onYouTubePlayerAPIReady() {
+    // create the global player from the specific iframe (#video)
+    player = new YT.Player('video', {
+      events: {
+        // call this function when player is ready to use
+        'onReady': onPlayerReady
+      }
+    });
+  }
   
 });
