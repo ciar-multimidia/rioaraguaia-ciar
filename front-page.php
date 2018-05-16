@@ -12,8 +12,8 @@
 		<?php endwhile; endif; ?>
 	</div>
 	<div class="fundo">
-		<div class="video"><?php echo video_youtube(get_field('home_projeto_video','option')); ?></div>
-		<div class="imagem" style="background-image: url('<?php echo get_field('home_projeto_imagem','option'); ?>');">
+		<div class="video"><?php echo video_youtube(get_field('home_projeto_video','option'), 'video-projeto'); ?></div>
+		<div class="imagem bt-youtube-video" style="background-image: url('<?php echo get_field('home_projeto_imagem','option'); ?>');">
 			<span><i class="fa fa-youtube-play" aria-hidden="true"></i></span>
 		</div>
 	</div>
@@ -23,8 +23,8 @@
 
 <section class="sobre curso container">
 	<div class="fundo">
-		<div class="video"><?php echo video_youtube(get_field('home_curso_video','option')); ?></div>
-		<div class="imagem" style="background-image: url('<?php echo get_field('home_curso_imagem','option'); ?>');">
+		<div class="video"><?php echo video_youtube(get_field('home_curso_video','option'), 'video-curso'); ?></div>
+		<div class="imagem bt-youtube-video" style="background-image: url('<?php echo get_field('home_curso_imagem','option'); ?>');">
 			<span><i class="fa fa-youtube-play" aria-hidden="true"></i></span>
 		</div>
 	</div>
