@@ -54,14 +54,34 @@ jQuery(document).ready(function($) {
   scriptYtApi.attr('src', '//www.youtube.com/player_api');
   $('main').find('script').eq(0).before(scriptYtApi);
 
-  var player;
+  var $video = $('.video');
   
-  function onYouTubePlayerAPIReady() {
+  window.onYouTubePlayerAPIReady = function() {
     // create the global player from the specific iframe (#video)
-    player = new YT.Player('video', {
-      events: {
-        // call this function when player is ready to use
-        'onReady': onPlayerReady
+    console.log('api carregou');
+
+    $video.each(function(index, el) {
+      var $iframeYt = $(el).children('iframe');
+      var idIframe = $iframeYt.attr('id');
+
+      var player;
+
+      player = new YT.Player(idIframe, {
+        events: {
+          // call this function when player is ready to use
+          'onReady': onPlayerReady
+        }
+      });
+
+      function onPlayerReady(event){
+        var $btVideo = $(el).siblings('.bt-youtube-video');
+        $btVideo.on('click', function(event) {
+          $(this).animate({'opacity': 0}, 300, function() {
+            $(this).remove();
+          });
+          $iframeYt.parent().addClass('visivel');
+          player.playVideo();
+        });
       }
     });
   }

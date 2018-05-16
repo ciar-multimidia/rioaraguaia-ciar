@@ -255,7 +255,7 @@ function envolve_embed($html, $url, $attr, $post_id) {
 function video_youtube($string, $id) {
     return preg_replace(
         "/\s*[a-zA-Z\/\/:\.]*youtu(be.com\/watch\?v=|.be\/)([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i",
-        "<iframe id=\"". $id ."\" src=\"//www.youtube.com/embed/$2?enablejsapi=1&amp;rel=0&amp;controls=0&amp;showinfo=0\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>",
+        "<iframe id=\"". $id ."\" src=\"//www.youtube.com/embed/$2?enablejsapi=1&amp;rel=0&amp;controls=0&amp;showinfo=0\" frameborder=\"0\" allowfullscreen></iframe>",
         $string
     );
 }
