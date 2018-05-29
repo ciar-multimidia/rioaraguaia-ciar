@@ -167,6 +167,11 @@ body.single-colaboradoresufg #cabecalho .container nav ul li a {
 		width: 50%;
 		position: relative;
 		text-align: justify;
+
+		.linguas {
+			position: absolute;
+			top: 40px;
+		}
 	}
 
 	.fundo {
@@ -213,6 +218,8 @@ body.single-colaboradoresufg #cabecalho .container nav ul li a {
 		.descricao {
 			padding: 40px 40px 40px 0;
 
+			.linguas {right: 40px;}
+
 			&:after {
 				content: "";
 				@extend %sprite;
@@ -231,6 +238,8 @@ body.single-colaboradoresufg #cabecalho .container nav ul li a {
 	&.curso {
 		.descricao {
 			padding: 40px 0 40px 40px;
+
+			.linguas {right: 0px;}
 
 			&:after {
 				content: "";
@@ -254,6 +263,11 @@ body.single-colaboradoresufg #cabecalho .container nav ul li a {
 	position: relative;
 	background: lighten($cor3,5%);
 	padding: 40px 0;
+
+	.linguas {
+		position: absolute;
+		top: 0; right: 0;
+	}
 }
 
 
@@ -370,12 +384,19 @@ body.single-colaboradoresufg #cabecalho .container nav ul li a {
 
 ///// descricao de pagina
 .descpagina {
+	position: relative;
+
 	.conteudo {
 		@include columns(2);
 		@include column-gap(40px);
 		margin: 25px 0;
 		text-align: justify;
 		hyphens: auto;
+	}
+
+	.linguas {
+		position: absolute;
+		top: 0; right: 10px;
 	}
 }
 
@@ -399,7 +420,7 @@ body.single-colaboradoresufg #cabecalho .container nav ul li a {
 	article {
 		width: 100%;
 
-		p, h2, h3, h4, h5, h6, ul, ol, hr, blockquote {
+		p, h2, h3, h4, h5, h6, ul, ol, hr, blockquote, .lingua-kr {
 			width: 760px;
 			max-width: 100%;
 			display: block;
@@ -408,6 +429,19 @@ body.single-colaboradoresufg #cabecalho .container nav ul li a {
 			hyphens: auto;
 			text-align: justify;
 		}	
+
+		.lingua-kr {
+			padding: 10px;
+			background: #f4f4f4;
+
+			&:before {
+				content: "Tradu\00E7\00E3o em Karaj\00E1:";
+				display: inline-block;
+				margin-right: 8px;
+				color: $cor1;
+				font-style: italic;
+			}
+		}
 
 		.foto-colab {
 			max-width: 350px;
@@ -462,6 +496,11 @@ body.single-colaboradoresufg #cabecalho .container nav ul li a {
 					margin: 10px 0 20px;
 					font-weight: 800;
 					text-align: left;
+				}
+
+				.linguas {
+					display: block;
+					margin-bottom: 15px;
 				}
 
 				.infos {

@@ -17,24 +17,44 @@
 				<?php } ?>
 			</h1>
 
-		<div class="conteudo">
-
+		<div class="conteudo arealingua">
 			<?php if (is_category('territorio-e-lugares')) { ?>
 				<?php if( have_rows('exposicao_territorios','option') ): while (have_rows('exposicao_territorios','option')) : the_row(); ?>
 					<?php if (get_sub_field('portugues')): ?>
-						<?php echo get_sub_field('portugues'); ?>
+						<div class="lingua-pt"><?php echo get_sub_field('portugues'); ?></div>
+					<?php endif; ?>
+					<?php if (get_sub_field('karaja')): ?>
+						<div class="lingua-kr hidden"><?php echo get_sub_field('karaja'); ?></div>
+						<select class="linguas">
+						  <option value="pt">Português</option>
+						  <option value="kr">Karajá</option>
+						</select>		
 					<?php endif; ?>
 				<?php endwhile; endif; ?>
 			<?php } elseif (is_category('saberes-e-tradicoes')) { ?>
 				<?php if( have_rows('exposicao_saberes','option') ): while (have_rows('exposicao_saberes','option')) : the_row(); ?>
 					<?php if (get_sub_field('portugues')): ?>
-						<?php echo get_sub_field('portugues'); ?>
+						<div class="lingua-pt"><?php echo get_sub_field('portugues'); ?></div>
+					<?php endif; ?>
+					<?php if (get_sub_field('karaja')): ?>
+						<div class="lingua-kr hidden"><?php echo get_sub_field('karaja'); ?></div>
+						<select class="linguas">
+						  <option value="pt">Português</option>
+						  <option value="kr">Karajá</option>
+						</select>		
 					<?php endif; ?>
 				<?php endwhile; endif; ?>
 			<?php } elseif (is_category('artes-e-museus')) { ?>
 				<?php if( have_rows('exposicao_artes','option') ): while (have_rows('exposicao_artes','option')) : the_row(); ?>
 					<?php if (get_sub_field('portugues')): ?>
-						<?php echo get_sub_field('portugues'); ?>
+						<div class="lingua-pt"><?php echo get_sub_field('portugues'); ?></div>
+					<?php endif; ?>
+					<?php if (get_sub_field('karaja')): ?>
+						<div class="lingua-kr hidden"><?php echo get_sub_field('karaja'); ?></div>
+						<select class="linguas">
+						  <option value="pt">Português</option>
+						  <option value="kr">Karajá</option>
+						</select>		
 					<?php endif; ?>
 				<?php endwhile; endif; ?>
 			<?php } get_template_part('inc/seletor'); ?>

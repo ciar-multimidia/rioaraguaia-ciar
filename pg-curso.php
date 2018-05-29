@@ -1,17 +1,27 @@
 <?php /* Template Name: Sobre o Curso */ ?>
 <?php get_header(); ?>
 
-<section class="container descpagina">
+<section class="container descpagina arealingua">
 	<h1><?php the_title(); ?></h1>
 	<h2>Patrimônio cultural em Goiás: olhares da arqueologia subaquática e colaborativa</h2>
-
+	<?php if( have_rows('curso_descricao','option') ): while (have_rows('curso_descricao','option')) : the_row(); ?>
 	<div class="conteudo">
-		<?php if( have_rows('curso_descricao','option') ): while (have_rows('curso_descricao','option')) : the_row(); ?>
+		
 			<?php if (get_sub_field('portugues')): ?>
-				<?php echo get_sub_field('portugues'); ?>
+				<div class="lingua-pt"><?php echo get_sub_field('portugues'); ?></div>
 			<?php endif; ?>
-		<?php endwhile; endif; ?>
+			<?php if (get_sub_field('karaja')): ?>
+				<div class="lingua-kr hidden"><?php echo get_sub_field('karaja'); ?></div>
+			<?php endif; ?>
+		
 	</div>
+		<?php if (get_sub_field('karaja')): ?>
+		<select class="linguas">
+		  <option value="pt">Português</option>
+		  <option value="kr">Karajá</option>
+		</select>
+		<?php endif; ?>
+	<?php endwhile; endif; ?>
 
 	<!-- <div align="center"><a href="#" class="button">Acesso ao Moodle</a></div> -->
 </section>
@@ -31,7 +41,7 @@
 				<?php endif; ?>				
 				<div class="detalhe"></div>
 			</div>
-			<div class="conteudo">
+			<div class="conteudo arealingua">
 				<?php if (get_sub_field('nome')): ?><h3 class="verde"><?php echo get_sub_field('nome'); ?></h3><?php endif; ?>
 				<h5>
 					Módulo <?php if (get_sub_field('tipo') == 'Presencial'): echo 'presencial'; elseif (get_sub_field('tipo') == 'Online'): echo 'online'; endif;  ?> 
@@ -42,13 +52,25 @@
 					<?php endwhile; endif; ?>
 				</h5>
 
-				<div class="txt">
 				<?php if( have_rows('descricao') ): while (have_rows('descricao')) : the_row(); ?>
+					<?php if (get_sub_field('karaja')): ?>
+					<select class="linguas">
+					  <option value="pt">Português</option>
+					  <option value="kr">Karajá</option>
+					</select>		
+					<?php endif; ?>		
+
+				<div class="txt">
+				
 					<?php if (get_sub_field('portugues')): ?>
-						<?php echo get_sub_field('portugues'); ?>
+						<div class="lingua-pt"><?php echo get_sub_field('portugues'); ?></div>
 					<?php endif; ?>
-				<?php endwhile; endif; ?>
+					<?php if (get_sub_field('karaja')): ?>
+						<div class="lingua-kr hidden"><?php echo get_sub_field('karaja'); ?></div>
+					<?php endif; ?>
+				
 				</div>
+				<?php endwhile; endif; ?>
 
 				<div class="infos">
 					<?php

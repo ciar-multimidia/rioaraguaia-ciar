@@ -2,10 +2,18 @@
 	<div class="container descpagina">
 		<h1>Exposição virtual</h1>
 
-		<div class="conteudo">
+		<div class="conteudo arealingua">
 		<?php if( have_rows('apresenta_exposicao','option') ): while (have_rows('apresenta_exposicao','option')) : the_row(); ?>
 			<?php if (get_sub_field('portugues')): ?>
-				<?php echo get_sub_field('portugues'); ?>
+				<div class="lingua-pt"><?php echo get_sub_field('portugues'); ?></div>
+			<?php endif; ?>
+			<?php if (get_sub_field('karaja')): ?>
+				<div class="lingua-kr hidden"><?php echo get_sub_field('karaja'); ?></div>
+
+					<select class="linguas">
+					  <option value="pt">Português</option>
+					  <option value="kr">Karajá</option>
+					</select>		
 			<?php endif; ?>
 		<?php endwhile; endif; ?>
 		<?php get_template_part('inc/seletor') ?>

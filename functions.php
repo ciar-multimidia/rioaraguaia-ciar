@@ -309,3 +309,9 @@ function shortcode_botao( $atts, $content = null ) {
 }
 add_shortcode('botao','shortcode_botao');
 
+////////////////////////////// lingua karaja nos posts
+function shortcode_karaja( $atts, $content = null ) {
+    return '<div class="lingua-kr">'.$content.'</div>';
+}
+add_shortcode('karaja','shortcode_karaja');
+

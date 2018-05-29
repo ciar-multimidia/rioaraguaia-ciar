@@ -2,20 +2,34 @@
 <?php get_header(); ?>
 
 <section class="sobre projeto container">
-	<div class="descricao">
+	<div class="descricao arealingua">
 		<?php if (get_field('home_projeto_titulo','option')): ?><h2 class="verde"><?php echo get_field('home_projeto_titulo','option'); ?></h2><?php endif; ?>
 
 		<?php if( have_rows('home_projeto_descricao','option') ): while (have_rows('home_projeto_descricao','option')) : the_row(); ?>
 			<?php if (get_sub_field('portugues')): ?>
-				<?php echo get_sub_field('portugues'); ?>
+				<div class="lingua-pt"><?php echo get_sub_field('portugues'); ?></div>
 			<?php endif; ?>
+			<?php if (get_sub_field('karaja')): ?>
+				<div class="lingua-kr hidden"><?php echo get_sub_field('karaja'); ?></div>
+			
+			<select class="linguas">
+			  <option value="pt">Português</option>
+			  <option value="kr">Karajá</option>
+			</select>
+		<?php endif; ?>
+
 		<?php endwhile; endif; ?>
+
 	</div>
 	<div class="fundo">
-		<div class="video"><?php echo video_youtube(get_field('home_projeto_video','option'), 'video-projeto'); ?></div>
-		<div class="imagem bt-youtube-video" style="background-image: url('<?php echo get_field('home_projeto_imagem','option'); ?>');">
-			<span><i class="fa fa-youtube-play" aria-hidden="true"></i></span>
-		</div>
+		<?php if (get_field('home_projeto_video','option')): ?><div class="video"><?php echo video_youtube(get_field('home_projeto_video','option'), 'video-projeto'); ?></div><?php endif; ?>
+		<?php if (get_field('home_projeto_imagem','option')): ?>
+			<div class="imagem bt-youtube-video" style="background-image: url('<?php echo get_field('home_projeto_imagem','option'); ?>');<?php if (! get_field('home_projeto_video','option')): ?> cursor: auto;<?php endif; ?>">
+				<?php if (get_field('home_projeto_video','option')): ?>
+					<span><i class="fa fa-youtube-play" aria-hidden="true"></i></span>
+				<?php endif; ?>
+			</div>
+		<?php endif; ?>
 	</div>
 </section>
 
@@ -23,17 +37,30 @@
 
 <section class="sobre curso container">
 	<div class="fundo">
-		<div class="video"><?php echo video_youtube(get_field('home_curso_video','option'), 'video-curso'); ?></div>
-		<div class="imagem bt-youtube-video" style="background-image: url('<?php echo get_field('home_curso_imagem','option'); ?>');">
-			<span><i class="fa fa-youtube-play" aria-hidden="true"></i></span>
-		</div>
+		<?php if (get_field('home_curso_video','option')): ?><div class="video"><?php echo video_youtube(get_field('home_curso_video','option'), 'video-curso'); ?></div><?php endif; ?>
+		<?php if (get_field('home_curso_imagem','option')): ?>
+			<div class="imagem bt-youtube-video" style="background-image: url('<?php echo get_field('home_curso_imagem','option'); ?>');<?php if (! get_field('home_curso_video','option')): ?> cursor: auto;<?php endif; ?>">
+				<?php if (get_field('home_curso_video','option')): ?>
+					<span><i class="fa fa-youtube-play" aria-hidden="true"></i></span>
+				<?php endif; ?>
+			</div>
+		<?php endif; ?>
 	</div>
-	<div class="descricao">
+	<div class="descricao arealingua">
 		<?php if (get_field('home_curso_titulo','option')): ?><h2 class="verde"><?php echo get_field('home_curso_titulo','option'); ?></h2><?php endif; ?>
 
 		<?php if( have_rows('home_curso_descricao','option') ): while (have_rows('home_curso_descricao','option')) : the_row(); ?>
 			<?php if (get_sub_field('portugues')): ?>
-				<?php echo get_sub_field('portugues'); ?>
+				<div class="lingua-pt"><?php echo get_sub_field('portugues'); ?></div>
+			<?php endif; ?>
+			<?php if (get_sub_field('karaja')): ?>
+				<div class="lingua-kr hidden"><?php echo get_sub_field('karaja'); ?></div>
+			
+
+			<select class="linguas">
+			  <option value="pt">Português</option>
+			  <option value="kr">Karajá</option>
+			</select>
 			<?php endif; ?>
 		<?php endwhile; endif; ?>
 	</div>
@@ -42,16 +69,27 @@
 
 
 <section class="divisoria">
-	<div class="container descpagina">
+	<div class="container descpagina arealingua">
 		<h2>Exposição virtual</h2>
 
-		<div class="conteudo" style="margin-bottom: 0">
 		<?php if( have_rows('apresenta_exposicao','option') ): while (have_rows('apresenta_exposicao','option')) : the_row(); ?>
+		<div class="conteudo" style="margin-bottom: 0">
+		
 			<?php if (get_sub_field('portugues')): ?>
-				<?php echo get_sub_field('portugues'); ?>
+				<div class="lingua-pt"><?php echo get_sub_field('portugues'); ?></div>
+			<?php endif; ?>
+			<?php if (get_sub_field('karaja')): ?>
+				<div class="lingua-kr hidden"><?php echo get_sub_field('karaja'); ?></div>
+			<?php endif; ?>
+		
+		</div>
+			<?php if (get_sub_field('karaja')): ?>
+			<select class="linguas">
+			  <option value="pt">Português</option>
+			  <option value="kr">Karajá</option>
+			</select>
 			<?php endif; ?>
 		<?php endwhile; endif; ?>
-		</div>
 	</div>
 </section>
 

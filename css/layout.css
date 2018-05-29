@@ -76,7 +76,7 @@ s {
 del {
   display: none; }
 
-p, ul, ol, .wp-block-cover-image, .wp-block-image, .video, table, hr {
+p, ul, ol, .wp-block-cover-image, .wp-block-image, .video, table, hr, .lingua-kr {
   margin: 0 0 26px; }
 
 small {
@@ -475,6 +475,9 @@ body.single-colaboradoresufg #cabecalho .container nav ul li a {
     width: 50%;
     position: relative;
     text-align: justify; }
+    .sobre .descricao .linguas, .sobre .fundo .linguas {
+      position: absolute;
+      top: 40px; }
   .sobre .fundo .video {
     width: 50vw;
     position: absolute;
@@ -514,6 +517,8 @@ body.single-colaboradoresufg #cabecalho .container nav ul li a {
       width: 100%; } }
   .sobre.projeto .descricao {
     padding: 40px 40px 40px 0; }
+    .sobre.projeto .descricao .linguas {
+      right: 40px; }
     .sobre.projeto .descricao:after {
       content: "";
       width: 387px;
@@ -532,6 +537,8 @@ body.single-colaboradoresufg #cabecalho .container nav ul li a {
     left: 0; }
   .sobre.curso .descricao {
     padding: 40px 0 40px 40px; }
+    .sobre.curso .descricao .linguas {
+      right: 0px; }
     .sobre.curso .descricao:after {
       content: "";
       width: 281px;
@@ -553,6 +560,10 @@ body.single-colaboradoresufg #cabecalho .container nav ul li a {
   position: relative;
   background: #faf9eb;
   padding: 40px 0; }
+  .divisoria .linguas {
+    position: absolute;
+    top: 0;
+    right: 0; }
 
 .acessoeixos {
   margin: 40px 0 0 0;
@@ -752,16 +763,22 @@ body.single-colaboradoresufg #cabecalho .container nav ul li a {
   .duascolunas > div p:last-of-type {
     margin-bottom: 0; }
 
-.descpagina .conteudo {
-  -webkit-columns: 2;
-  -moz-columns: 2;
-  columns: 2;
-  -webkit-column-gap: 40px;
-  -moz-column-gap: 40px;
-  column-gap: 40px;
-  margin: 25px 0;
-  text-align: justify;
-  hyphens: auto; }
+.descpagina {
+  position: relative; }
+  .descpagina .conteudo {
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    columns: 2;
+    -webkit-column-gap: 40px;
+    -moz-column-gap: 40px;
+    column-gap: 40px;
+    margin: 25px 0;
+    text-align: justify;
+    hyphens: auto; }
+  .descpagina .linguas {
+    position: absolute;
+    top: 0;
+    right: 10px; }
 
 #conteudo-interno header {
   text-align: center;
@@ -775,7 +792,7 @@ body.single-colaboradoresufg #cabecalho .container nav ul li a {
     font-weight: 800; }
 #conteudo-interno article {
   width: 100%; }
-  #conteudo-interno article p, #conteudo-interno article h2, #conteudo-interno article h3, #conteudo-interno article h4, #conteudo-interno article h5, #conteudo-interno article h6, #conteudo-interno article ul, #conteudo-interno article ol, #conteudo-interno article hr, #conteudo-interno article blockquote {
+  #conteudo-interno article p, #conteudo-interno article h2, #conteudo-interno article h3, #conteudo-interno article h4, #conteudo-interno article h5, #conteudo-interno article h6, #conteudo-interno article ul, #conteudo-interno article ol, #conteudo-interno article hr, #conteudo-interno article blockquote, #conteudo-interno article .lingua-kr {
     width: 760px;
     max-width: 100%;
     display: block;
@@ -783,6 +800,15 @@ body.single-colaboradoresufg #cabecalho .container nav ul li a {
     margin-right: auto;
     hyphens: auto;
     text-align: justify; }
+  #conteudo-interno article .lingua-kr {
+    padding: 10px;
+    background: #f4f4f4; }
+    #conteudo-interno article .lingua-kr:before {
+      content: "Tradu\00E7\00E3o em Karaj\00E1:";
+      display: inline-block;
+      margin-right: 8px;
+      color: #A01B2C;
+      font-style: italic; }
   #conteudo-interno article .foto-colab {
     max-width: 350px;
     margin: 0 20px 10px 0;
@@ -1303,6 +1329,9 @@ img.mfp-img {
           margin: 10px 0 20px;
           font-weight: 800;
           text-align: left; }
+        .moduloscurso > div .container .conteudo .linguas, .moduloscurso > div .container .ilustracao .linguas {
+          display: block;
+          margin-bottom: 15px; }
         .moduloscurso > div .container .conteudo .infos p, .moduloscurso > div .container .ilustracao .infos p {
           margin: 0; }
           .moduloscurso > div .container .conteudo .infos p span, .moduloscurso > div .container .ilustracao .infos p span {

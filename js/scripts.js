@@ -39,6 +39,22 @@ jQuery(document).ready(function($) {
     }
   });  
 
+  ////////////////////////////////// mudanca de lingua
+
+  var $arealinguas = $('.arealingua');
+
+  if ($arealinguas.length > 0) {
+
+    $arealinguas.each(function(index, el) {
+      var $thisarea = $(this);
+      $thisarea.find('.linguas').on('change', function(event) {
+        $thisarea.find('.lingua-pt, .lingua-kr').addClass('hidden');
+        $thisarea.find('.lingua-'+$(this).val()).removeClass('hidden');
+      });  
+    });
+    
+  }
+
 
   ////////////////////////////////// IR PRO PRODAPE
 
