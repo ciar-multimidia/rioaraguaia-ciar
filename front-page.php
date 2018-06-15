@@ -94,11 +94,10 @@
 </section>
 
 
-
 <?php 
 echo '<section class="container">'; 
 	echo '<div class="acessoeixos">';   
-		echo '<a style="background-image: url(/wp-content/uploads/2018/04/galeria-territorios-lugares002-375x250.jpg);" href="/exposicao-virtual/territorio-e-lugares/"><span>Eixo Território e Lugares</span></a>';
+		echo '<a style="background-image: url(/wp-content/uploads/2018/04/galeria-territorios-lugares002-375x250.jpg);" href="/exposicao-virtual/territorios-e-lugares/"><span>Eixo Território e Lugares</span></a>';
 		echo '<a style="background-image: url(/wp-content/uploads/2018/04/galeria-territorios-lugares017-375x250.jpg);" href="/exposicao-virtual/saberes-e-tradicoes/"><span>Eixo Saberes e Tradições</span></a>';
 		echo '<a style="background-image: url(/wp-content/uploads/2018/04/galeria-artes-museus-006-375x250.jpg);" href="/exposicao-virtual/artes-e-museus/"><span>Eixo Artes e Museus</span></a>';
     echo '</div>';

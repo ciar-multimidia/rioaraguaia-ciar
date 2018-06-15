@@ -29,7 +29,6 @@ html, body {overflow-x: hidden;
 
 	@media (max-width: 1200px) {
 		max-width: 1200px; width: 1200px;
-		overflow-x: auto;
 	}
 
 }
@@ -92,7 +91,7 @@ body {
 			}
 
 			&:after {
-				width: 100vw;
+				width: 200vw;
 				background: $cor-padrao;
 			    bottom: 0;
 			    left: 74px;

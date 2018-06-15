@@ -18,7 +18,7 @@
 			</h1>
 
 		<div class="conteudo arealingua">
-			<?php if (is_category('territorio-e-lugares')) { ?>
+			<?php if (is_category('territorios-e-lugares')) { ?>
 				<?php if( have_rows('exposicao_territorios','option') ): while (have_rows('exposicao_territorios','option')) : the_row(); ?>
 					<?php if (get_sub_field('portugues')): ?>
 						<div class="lingua-pt"><?php echo get_sub_field('portugues'); ?></div>

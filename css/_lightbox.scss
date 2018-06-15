@@ -75,6 +75,7 @@ $mfp-use-visuallyhidden:              false !default;                      // Hi
   top: 0;
   left: 0;
   width: 100%;
+  min-width: 1200px;
   height: 100%;
   z-index: $mfp-z-index-base + 2;
   overflow: hidden;
@@ -89,6 +90,7 @@ $mfp-use-visuallyhidden:              false !default;                      // Hi
   top: 0;
   left: 0;
   width: 100%;
+  min-width: 1200px;
   height: 100%;
   z-index: $mfp-z-index-base + 3;
   position: fixed;

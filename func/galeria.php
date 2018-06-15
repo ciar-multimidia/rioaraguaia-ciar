@@ -111,7 +111,7 @@ function galeria_imagens( $output, $attr ) {
         $imagemtmedium = wp_get_attachment_image_src($id, 'medium', false, false);
         $output .= "<div class='galeria-item'>\n";
             $output .= "<div class='galeria-imagem'>\n";
-                $output .= "<a href='".$imagemfull[0]."' class='fancybox' rel='postgaleria' title='".wptexturize($attachment->post_excerpt)."' style='background-image: url(".$imagemtmedium[0].")'>";
+                $output .= "<a href='".$imagemfull[0]."' class='fancybox' title='".wptexturize($attachment->post_excerpt)."' style='background-image: url(".$imagemtmedium[0].")'>";
                     $output .= "<img src='".$imagemtmedium[0]."' alt='".wptexturize($attachment->post_excerpt)."'>";
                 $output .= "</a>\n";
             $output .= "</div>";
